@@ -6,19 +6,30 @@ import CreateGame from "./components/CreateGame";
 import EditGame from "./components/EditGame";
 import DetailsGame from "./components/DetailsGame";
 import CatalogGame from "./components/CatalogGame";
+import ErrorPage from "./components/ErrorPage";
+import { useState } from "react";
 
 function App() {
+  const [page, setPage] = useState(`/home`);
+
+  const navChangePath = (path) => {
+    setPage(path);
+  };
+
+  const router = {
+    "/home": <WelcomeWorld />,
+    "/login": <Login />,
+    "/register": <Register />,
+    "/create-game": <CreateGame />,
+    "/edit/:id": <EditGame />,
+    "/details/:id": <DetailsGame />,
+    "/games": <CatalogGame />,
+  };
+
   return (
     <div id="box">
-      {/* <main id="main-content"></main> */}
-      <Header />
-      <WelcomeWorld />
-      <Login />
-      <Register />
-      <CreateGame />
-      <EditGame />
-      <DetailsGame />
-      <CatalogGame />
+      <Header navChangePath={navChangePath} />
+      <main id="main-content">{router[page] || <ErrorPage />}</main>
     </div>
   );
 }
