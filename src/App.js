@@ -5,7 +5,7 @@ import Register from "./components/Register";
 import CreateGame from "./components/CreateGame";
 import EditGame from "./components/EditGame";
 import DetailsGame from "./components/DetailsGame";
-import CatalogGame from "./components/CatalogGame";
+import CatalogGame from "./components/CatalogGame/CatalogGame";
 import ErrorPage from "./components/ErrorPage";
 import { useState } from "react";
 
