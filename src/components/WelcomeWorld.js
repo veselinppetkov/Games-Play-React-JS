@@ -1,7 +1,7 @@
 const WelcomeWorld = () => {
   return (
-    <section id="welcome-world">
-      <div d="welcome-message">
+    <section className="welcome-world">
+      <div className="welcome-message">
         <h2>ALL new games are</h2>
         <h3>Only in GamesPlay</h3>
       </div>
@@ -10,62 +10,62 @@ const WelcomeWorld = () => {
       <div id="home-page">
         <h1>Latest Games</h1>
 
-        <div d="game">
-          <div d="image-wrap">
+        <div className="game">
+          <div className="image-wrap">
             <img src="./images/CoverFire.png" />
           </div>
           <h3>Cover Fire</h3>
-          <div d="rating">
+          <div className="rating">
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
           </div>
-          <div d="data-buttons">
-            <a href="#" d="btn details-btn">
+          <div className="data-buttons">
+            <a href="#" className="btn details-btn">
               Details
             </a>
           </div>
         </div>
-        <div d="game">
-          <div d="image-wrap">
+        <div className="game">
+          <div className="image-wrap">
             <img src="./images/ZombieLang.png" />
           </div>
           <h3>Zombie Lang</h3>
-          <div d="rating">
+          <div className="rating">
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
           </div>
-          <div d="data-buttons">
-            <a href="#" d="btn details-btn">
+          <div className="data-buttons">
+            <a href="#" className="btn details-btn">
               Details
             </a>
           </div>
         </div>
-        <div d="game">
-          <div d="image-wrap">
+        <div className="game">
+          <div className="image-wrap">
             <img src="./images/MineCraft.png" />
           </div>
           <h3>MineCraft</h3>
-          <div d="rating">
+          <div className="rating">
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
             <span>☆</span>
           </div>
-          <div d="data-buttons">
-            <a href="#" d="btn details-btn">
+          <div className="data-buttons">
+            <a href="#" className="btn details-btn">
               Details
             </a>
           </div>
         </div>
 
-        <p d="no-articles">No games yet</p>
+        <p className="no-articles">No games yet</p>
       </div>
     </section>
   );

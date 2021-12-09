@@ -1,8 +1,8 @@
 const EditGame = () => {
   return (
-    <section id="edit-page" d="auth">
+    <section id="edit-page" className="auth">
       <form id="edit">
-        <div d="container">
+        <div className="container">
           <h1>Edit Game</h1>
           <label htmlFor="leg-title">Legendary title:</label>
           <input type="text" id="title" name="title" />
@@ -18,7 +18,7 @@ const EditGame = () => {
 
           <label htmlFor="summary">Summary:</label>
           <textarea name="summary" id="summary"></textarea>
-          <input d="btn submit" type="submit" value="Edit Game" />
+          <input className="btn submit" type="submit" value="Edit Game" />
         </div>
       </form>
     </section>

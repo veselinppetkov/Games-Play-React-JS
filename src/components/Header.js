@@ -11,7 +11,7 @@ const Header = ({ navChangePath }) => {
   return (
     <header onClick={onHeaderClick}>
       <h1>
-        <a d="home" href="/home">
+        <a className="home" href="/home">
           GamesPlay
         </a>
       </h1>

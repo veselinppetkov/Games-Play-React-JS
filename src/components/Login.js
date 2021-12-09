@@ -1,9 +1,9 @@
 const Login = () => {
   return (
-    <section id="login-page" d="auth">
-      <form id="login">
-        <div d="container">
-          <div d="brand-logo"></div>
+    <section className="login-page" className="auth">
+      <form className="login">
+        <div className="container">
+          <div className="brand-logo"></div>
           <h1>Login</h1>
           <label htmlFor="email">Email:</label>
           <input
@@ -15,8 +15,8 @@ const Login = () => {
 
           <label htmlFor="login-pass">Password:</label>
           <input type="password" id="login-password" name="password" />
-          <input type="submit" d="btn submit" value="Login" />
-          <p d="field">
+          <input type="submit" className="btn submit" value="Login" />
+          <p className="field">
             <span>
               If you don't have profile click <a href="#">here</a>
             </span>
