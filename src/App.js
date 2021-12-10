@@ -6,7 +6,7 @@ import CreateGame from "./components/CreateGame";
 import EditGame from "./components/EditGame";
 import DetailsGame from "./components/DetailsGame/DetailsGame";
 import CatalogGame from "./components/CatalogGame/CatalogGame";
-import ErrorPage from "./components/ErrorPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
@@ -35,7 +35,17 @@ function App() {
   return (
     <div id="box">
       <Header navChangePath={navChangePath} />
-      <main id="main-content">{router(page) || <ErrorPage />}</main>
+      <main id="main-content">
+        <Router>
+          <Switch>
+            <Route path="/" exact component={WelcomeWorld} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
+            <Route path="/create-game" exact component={CreateGame} />
+            <Route path="/games" exact component={CatalogGame} />
+          </Switch>
+        </Router>
+      </main>
     </div>
   );
 }
