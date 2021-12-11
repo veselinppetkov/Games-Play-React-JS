@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getLatestGames } from "../services/gameService";
 import LatestGames from "./LatestGames";
 
-const WelcomeWorld = ({ navChangePath }) => {
+const WelcomeWorld = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -20,15 +20,9 @@ const WelcomeWorld = ({ navChangePath }) => {
       <div id="home-page">
         <h1>Latest Games</h1>
         {games.length == 0 ? (
-          <p className="no-articles">No games yet</p>
+          <div className="lds-dual-ring"></div>
         ) : (
-          games.map((game) => (
-            <LatestGames
-              key={game._id}
-              game={game}
-              navChangePath={navChangePath}
-            />
-          ))
+          games.map((game) => <LatestGames key={game._id} game={game} />)
         )}
       </div>
     </section>

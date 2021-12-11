@@ -1,9 +1,6 @@
-const LatestGames = ({ game, navChangePath }) => {
-  const onDetailsClick = (e) => {
-    e.preventDefault();
-    navChangePath(`/details/${game._id}`);
-  };
+import { Link } from "react-router-dom";
 
+const LatestGames = ({ game }) => {
   return (
     <div className="game">
       <div className="image-wrap">
@@ -18,13 +15,9 @@ const LatestGames = ({ game, navChangePath }) => {
         <span>☆</span>
       </div>
       <div className="data-buttons">
-        <a
-          href={`/details/${game._id}`}
-          onClick={onDetailsClick}
-          className="btn details-btn"
-        >
+        <Link to={`/details/${game._id}`} className="btn details-btn">
           Details
-        </a>
+        </Link>
       </div>
     </div>
   );

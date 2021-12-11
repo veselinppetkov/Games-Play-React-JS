@@ -2,8 +2,10 @@ import Header from "./components/Header";
 import WelcomeWorld from "./components/WelcomeWorld";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ErrorPage from "./components/ErrorPage";
 import CreateGame from "./components/CreateGame";
 import CatalogGame from "./components/CatalogGame/CatalogGame";
+import DetailsGame from "./components/DetailsGame/DetailsGame";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -13,10 +15,12 @@ function App() {
       <main id="main-content">
         <Switch>
           <Route path="/" exact component={WelcomeWorld} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
-          <Route path="/create-game" exact component={CreateGame} />
-          <Route path="/games" exact component={CatalogGame} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/create-game" component={CreateGame} />
+          <Route path="/games" component={CatalogGame} />
+          <Route path="/logout" component={ErrorPage} />
+          <Route path="/details/:gameId" component={DetailsGame} />
         </Switch>
       </main>
     </div>

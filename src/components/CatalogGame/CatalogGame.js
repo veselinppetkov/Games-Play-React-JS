@@ -13,11 +13,9 @@ const CatalogGame = ({ navChangePath }) => {
     <section id="catalog-page">
       <h1>All Games</h1>
       {games.length == 0 ? (
-        <div class="lds-dual-ring"></div>
+        <div className="lds-dual-ring"></div>
       ) : (
-        games.map((e) => (
-          <CardGame key={e._id} game={e} navChangePath={navChangePath} />
-        ))
+        games.map((e) => <CardGame key={e._id} game={e} />)
       )}
     </section>
   );
