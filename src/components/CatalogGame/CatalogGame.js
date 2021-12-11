@@ -13,7 +13,7 @@ const CatalogGame = ({ navChangePath }) => {
     <section id="catalog-page">
       <h1>All Games</h1>
       {games.length == 0 ? (
-        <h3 className="no-articles">No games yet</h3>
+        <div class="lds-dual-ring"></div>
       ) : (
         games.map((e) => (
           <CardGame key={e._id} game={e} navChangePath={navChangePath} />
