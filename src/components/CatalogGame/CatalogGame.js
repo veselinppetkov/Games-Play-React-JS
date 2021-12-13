@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { getAllGames } from "../../services/gameService";
-import CardGame from "./CardGame";
+const CardGame = lazy(() => import("./CardGame"));
 
-const CatalogGame = ({ navChangePath }) => {
+const CatalogGame = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -12,11 +12,13 @@ const CatalogGame = ({ navChangePath }) => {
   return (
     <section id="catalog-page">
       <h1>All Games</h1>
-      {games.length == 0 ? (
-        <div className="lds-dual-ring"></div>
-      ) : (
-        games.map((e) => <CardGame key={e._id} game={e} />)
-      )}
+      <Suspense fallback={<div>Loading...</div>}>
+        {games.length == 0 ? (
+          <div className="lds-dual-ring"></div>
+        ) : (
+          games.map((e) => <CardGame key={e._id} game={e} />)
+        )}
+      </Suspense>
     </section>
   );
 };
