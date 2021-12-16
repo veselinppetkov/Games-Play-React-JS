@@ -6,22 +6,22 @@ import ErrorPage from "./components/ErrorPage";
 import CreateGame from "./components/CreateGame";
 import CatalogGame from "./components/CatalogGame/CatalogGame";
 import DetailsGame from "./components/DetailsGame/DetailsGame";
-import { Route, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div id="box">
       <Header />
       <main id="main-content">
-        <Switch>
-          <Route path="/" exact component={WelcomeWorld} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/create-game" component={CreateGame} />
-          <Route path="/games" component={CatalogGame} />
-          <Route path="/logout" component={ErrorPage} />
-          <Route path="/details/:gameId" component={DetailsGame} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<WelcomeWorld />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/create-game" element={<CreateGame />} />
+          <Route path="/games" element={<CatalogGame />} />
+          <Route path="/logout" element={<ErrorPage />} />
+          <Route path="/details/:gameId" element={<DetailsGame />} />
+        </Routes>
       </main>
     </div>
   );
