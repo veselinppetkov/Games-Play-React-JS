@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import loginRequest from "../services/authService";
 
-const Login = () => {
+const Login = ({ login }) => {
   const navigation = useNavigate();
+
   function onLoginSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -11,11 +12,12 @@ const Login = () => {
     const password = formData.get(`password`).trim();
 
     loginRequest(email, password)
-      .then(() => {
+      .then((authData) => {
+        login(authData);
         navigation(`/`);
       })
       .catch((err) => {
-        alert(err.message);
+        console.log(err.message);
       });
   }
 

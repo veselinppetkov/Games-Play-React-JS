@@ -1,7 +1,31 @@
+import { useNavigate } from "react-router-dom";
+import { createGame } from "../services/gameService";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+
 const CreateGame = () => {
+  const navigate = useNavigate();
+  const { userInfo } = useContext(AuthContext);
+  const token = userInfo.accessToken;
+
+  const onCreate = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const title = formData.get(`title`).trim();
+    const category = formData.get(`category`).trim();
+    const maxLevel = formData.get(`maxLevel`).trim();
+    const imageUrl = formData.get(`imageUrl`).trim();
+    const summary = formData.get(`summary`).trim();
+
+    const gameInfo = { title, category, maxLevel, imageUrl, summary };
+
+    createGame(gameInfo, token);
+    navigate(`/`);
+  };
+
   return (
     <section id="create-page" d="auth">
-      <form id="create">
+      <form onSubmit={onCreate} id="create">
         <div className="container">
           <h1>Create Game</h1>
           <label htmlFor="leg-title">Legendary title:</label>

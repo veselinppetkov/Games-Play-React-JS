@@ -22,3 +22,14 @@ export const getLatestGames = async () => {
 
   return result;
 };
+
+export const createGame = (data, token) => {
+  fetch(`${url}/data/games`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Authorization": token,
+    },
+    body: JSON.stringify(data),
+  });
+};
