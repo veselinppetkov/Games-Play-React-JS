@@ -8,10 +8,13 @@ const loginRequest = async (email, password) => {
     },
     body: JSON.stringify({ email, password }),
   });
-
   const result = await res.json();
 
-  return result;
+  if (res.ok !== true) {
+    throw new Error(result.message);
+  } else {
+    return result;
+  }
 };
 
 export default loginRequest;

@@ -10,9 +10,13 @@ const Login = () => {
     const email = formData.get(`email`).trim();
     const password = formData.get(`password`).trim();
 
-    console.log(email, password);
-    loginRequest(email, password);
-    navigation(`/`);
+    loginRequest(email, password)
+      .then(() => {
+        navigation(`/`);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   }
 
   return (
