@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getGameById } from "../../services/gameService";
 import DetailsCard from "./DetailsCard";
 
-const DetailsGame = ({ match }) => {
+const DetailsGame = () => {
   const [game, setGame] = useState({});
+  const { gameId } = useParams();
 
   useEffect(() => {
-    getGameById(match.params.gameId).then((data) => setGame(data));
+    getGameById(gameId).then((data) => setGame(data));
   }, []);
 
   return (
