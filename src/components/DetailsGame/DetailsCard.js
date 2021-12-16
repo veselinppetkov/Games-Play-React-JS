@@ -1,4 +1,18 @@
-const DetailsCard = ({ game }) => {
+import { deleteGameById } from "../../services/gameService";
+import { useNavigate } from "react-router-dom";
+
+const DetailsCard = ({ game, userInfo }) => {
+  const navigate = useNavigate();
+
+  const deleteHandler = (e) => {
+    e.preventDefault();
+    let res = window.confirm(`Are you sure you want to delete this game?`);
+    if (res) {
+      deleteGameById(game._id, userInfo.accessToken);
+      console.log(`You have successfuly deleted ${game.title}`);
+      navigate(`/`);
+    }
+  };
   return (
     <>
       <div className="info-section">
@@ -22,15 +36,16 @@ const DetailsCard = ({ game }) => {
           </ul>
           <p className="no-comment">No comments.</p>
         </div>
-
-        <div className="buttons">
-          <a href="#" className="button">
-            Edit
-          </a>
-          <a href="#" className="button">
-            Delete
-          </a>
-        </div>
+        {userInfo._id === game._ownerId ? (
+          <div className="buttons">
+            <a href="#" className="button">
+              Edit
+            </a>
+            <a href="#" className="button" onClick={deleteHandler}>
+              Delete
+            </a>
+          </div>
+        ) : null}
       </div>
       <article className="create-comment">
         <label>Add new comment:</label>

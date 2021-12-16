@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import loginRequest from "../services/authService";
+import { loginRequest } from "../services/authService";
 
 const Login = ({ login }) => {
   const navigation = useNavigate();

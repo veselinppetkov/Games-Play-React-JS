@@ -33,3 +33,15 @@ export const createGame = (data, token) => {
     body: JSON.stringify(data),
   });
 };
+
+export const deleteGameById = async (id, token) => {
+  const res = await fetch(`${url}/data/games/${id}`, {
+    method: "DELETE",
+    headers: {
+      "X-Authorization": token,
+    },
+  });
+  const result = await res.json();
+
+  return result;
+};

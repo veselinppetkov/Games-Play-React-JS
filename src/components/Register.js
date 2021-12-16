@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { loginRequest, registerRequest } from "../services/authService";
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const registerHandler = (e) => {
+    e.preventDefault();
+    const { email, password } = Object.fromEntries(new FormData(e.target));
+
+    registerRequest(email, password).then(({ email, password }) => {
+      loginRequest(email, password);
+      navigate(`/`);
+    });
+  };
+
   return (
     <section id="register-page" className="content auth">
-      <form id="register">
+      <form onSubmit={registerHandler} id="register">
         <div className="container">
           <div className="brand-logo"></div>
           <h1>Register</h1>
